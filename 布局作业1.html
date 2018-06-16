@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>布局作业1</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        ul,li,ol{list-style: none;}
+        .clearfix::after{content: '';display: block;clear: both;}
+        .big{
+            width: 600px;
+            border: 1px solid black;
+        }
+        .logo{
+            float: left;
+            width: 80px;
+            height: 36px;
+            background: #ddd;
+        }
+        nav{
+            float: right;
+        }
+        li {
+            float: left;
+            width: 60px;
+            line-height: 20px;
+            text-align: center;
+            padding: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="big clearfix">
+        <div class="logo"></div>
+        <nav>
+            <ul class="clearfix">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

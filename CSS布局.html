@@ -66,9 +66,16 @@
             margin-right: auto;
             margin-top: 20px;
         }
+        @media (max-width:524px){
+            main > .banner  {width: auto;}
+        }
+    
         .pic{
             width:800px;
             margin:20px auto;
+        }
+        @media (max-width:524px){
+            .pic {width: auto;}
         }
         .pic > .xxx {
             display: flex;
@@ -79,8 +86,13 @@
         .pic > .xxx > .item{
             width: calc(25% - 8px);
             height:194px;
-            margin:4px;
-            background: #ddd;    
+           background: #ddd; 
+           margin: 4px;
+        } 
+
+        @media (max-width:524px){
+            .pic > .xxx {justify-content: space-between;margin:0;}
+            .pic > .xxx > .item {width: calc(50% - 8px);margin:4px;}
         }
 
         .art {
@@ -89,7 +101,6 @@
             width: 800px;
             margin: 20px auto;
         }
-
         .art > .side{
             width: calc(33.3333% - 8px);
             height: 300px;
@@ -100,6 +111,11 @@
             width: 66.6666%;
             height: 300px;
             background: blue;
+        }
+        @media (max-width:524px){
+            .art {width: auto;flex-direction: column;}
+            .art > .side{width: auto;}
+            .art > .main{width: auto;}
         }
     </style>
 </head>
