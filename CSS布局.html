@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS布局</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        ul,li,ol{list-style: none;}
+        .clearfix::after{content: '';display: block;clear: both;}
+
+        header{
+            background: #ddd;
+        }
+        header > .logo{
+            float: left;
+            display: block;
+            width: 150px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            color:#fff;
+            background: #000;
+            font-weight: bold;
+        }
+        header > nav.pc {
+            float: right;
+        }
+        header > nav.pc > ul > li {
+            float: left;
+            margin-left: 20px;
+            line-height: 22px;
+            padding: 7px;
+        }
+        nav.screen{
+            display: none;
+        }
+        @media (max-width:524px){
+            nav.screen{
+                display: block;
+            }
+            nav.screen div{
+                float: right;
+                margin-left: 20px;
+                line-height: 22px;
+                padding: 7px;
+            }
+            nav.pc{
+                display: none;
+            }
+        }
+        @media (mix-width:525px){
+            nav.screen{
+                display: none;
+            }
+            nav.pc{
+                display: block;
+            }
+        }
+        main > .banner{
+            width: 800px;
+            height: 300px;
+            background: #ddd;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+        .pic{
+            width:800px;
+            margin:20px auto;
+        }
+        .pic > .xxx {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left:-4px;
+            margin-right:-4px;
+        }
+        .pic > .xxx > .item{
+            width: calc(25% - 8px);
+            height:194px;
+            margin:4px;
+            background: #ddd;    
+        }
+
+        .art {
+            display: flex;
+            justify-content: space-between;
+            width: 800px;
+            margin: 20px auto;
+        }
+
+        .art > .side{
+            width: calc(33.3333% - 8px);
+            height: 300px;
+            background: red;
+        }
+
+        .art > .main {
+            width: 66.6666%;
+            height: 300px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <header class="clearfix">
+        <div class="logo">LOGO</div>
+        <nav class="pc"><ul class="clearfix">
+            <li>导航1</li>
+            <li>导航2</li>
+            <li>导航3</li>
+            <li>导航4</li>
+            <li>导航5</li>
+        </ul></nav>
+        <nav class="screen clearfix"><div>三</div></nav>
+    </header>
+    <main>
+        <div class="banner"></div>
+        <div class="pic">
+            <div class="xxx">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+        </div>
+        <div class="art">
+            <div class="side">广告1</div>
+            <div class="main">广告2</div>
+        </div>
+    </main>
+</body>
+</html>
