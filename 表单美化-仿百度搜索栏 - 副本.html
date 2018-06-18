@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//at.alicdn.com/t/font_710668_rz4cme15an.js"></script>
+    <title>仿百度搜索栏</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        *::before,*::after{box-sizing: border-box;}
+        ul,ol{list-style: none;}
+        .icon {
+            width: 20px; height: 20px;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+            fill: #b8b8b8;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .warpper {
+            display: flex;
+        }
+        .suggestion{
+            display: none;
+            position: absolute;
+            border: 1px solid #b8b8b8;
+            width: 644px;
+            z-index: 1;
+        }
+        .suggestion  li {
+            padding-left: 0.5em;
+        }
+        .suggestion li:hover{
+            background: #ddd;
+        }
+        .suggestion.active{
+            display: block;
+        }
+        .inputWrapper{
+            position: relative;
+            display: inline-block;
+            float: left;
+        }
+        .floatDiv {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 36px;
+            line-height: 36px;
+        }
+        .warpper + button {
+            float: left;
+        }
+        .inputWrapper input[type=text]{
+            border: 1px solid #b8b8b8;
+            width: 540px;
+            height: 35px;
+            line-height: 35px;
+            padding-left: 8px;
+            font-size: 15px;
+        }
+        .inputWrapper input[type=text]:focus{
+            outline: none;
+            border-color: #4b94fc;
+        }
+        svg.icon{
+            margin: 0 10px;
+        }
+        svg.icon:hover{
+            fill: #4b94fc;
+            cursor: pointer;
+        }
+        .floatDiv .splitLine{
+            border-right: 1px solid #b8b8b8;
+        }
+        .inputWrapper + button {
+            color: #fff;
+            background: #38f;
+            border: none;
+            line-height: 35px;
+            height: 35px;
+            padding: 0 20px;
+            font-size: 16px;
+        }
+        .inputWrapper +button:hover{
+            background: #317ef3;
+            box-shadow: 1px 1px 1px #ccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <span class="inputWrapper">
+            <input type="text" id="search" autocomplete="off">
+            <span class="floatDiv">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-mic"></use>
+                    </svg>
+                    <span class="splitLine"></span>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-cc-camera"></use>
+                    </svg>
+                </span>
+        </span>
+        <button>百度一下</button>
+        <ul id="suggestion" class="suggestion">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <div>&nbsp;</div>
+        </ul>
+    </div>
+    <script>
+        search.oninput = function(e){
+            if(search.value){
+                suggestion.classList.add('active');
+            }else{
+                suggestion.classList.remove('active');
+            }
+        }
+        var searchwords = document.querySelectorAll('#suggestion > li');
+        for(var i = 0;i < searchwords.length;i++){
+            searchwords[i].onclick = function(e){
+                search.value = this.innerHTML;
+            }
+            
+        }
+    </script>
+</body>
+</html>
